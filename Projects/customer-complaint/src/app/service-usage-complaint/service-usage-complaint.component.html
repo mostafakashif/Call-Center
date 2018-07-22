@@ -1,0 +1,31 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<div>
+  <div>
+    <form>
+        <h1>{{errorMsg}}</h1>
+      <label>Customer Provisioned Services:</label>
+      <select name="Customer-Provisioned-Services" [(ngModel)]="selectedCustomerService">
+        <option value="" disabled selected>select a category</option>
+        <option *ngFor="let customerProvisionedServices of customer.services" [ngValue]="customerProvisionedServices"> {{customerProvisionedServices.name}} </option>
+      </select>
+      <label>Service current usage:</label>
+      <input readonly type="text" placeholder="Service current usage" value="{{selectedCustomerService.usage}}"
+      />
+      <label>Service cost:</label>
+      <input readonly type="text" placeholder="Service cost" value="{{selectedCustomerService.cost}}" />
+      <label>Customer Complaint:</label>
+      <input  name="ComplaintDescription" placeholder="Customer Complaint" type="text"    [(ngModel)]="customerComplaint.description" />
+      <button (click)="submitComplaint()">Submit</button>
+
+
+    </form>
+  </div>
+</div>
